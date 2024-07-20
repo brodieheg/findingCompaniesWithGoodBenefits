@@ -43,22 +43,31 @@ const addResultsDiv = (text) => {
 const handleSubmit = async (event) => {
   event.preventDefault();
   showSpinner();
-  console.log(url.value);
-  const body = {
-    text: url.value,
-    keyword: keyword.value
+  try {
+
+    console.log(url.value);
+    const body = {
+      text: url.value,
+      keyword: keyword.value
+    }
+    const response = await fetch(API, {
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify(body)
+    })
+    const result = await response.text();
+    console.log(result);
+    addResultsDiv(result);
   }
-  const response = await fetch(API, {
-    headers:{
-      'Content-Type': 'application/json'
-    },
-  method: "POST",
-  body: JSON.stringify(body)
-})
-  const result = await response.text();
-  console.log(result);
-  addResultsDiv(result);
-  hideSpinner();
+  catch{
+    newURL.innerHTML = "Error loading website. Slack Brodie and tell him he is a failure."
+    container.appendChild(newURL);
+    container.appendChild(br);
+  }
+  finally
+    {hideSpinner();}
 }
 
 form.addEventListener("submit", handleSubmit)
