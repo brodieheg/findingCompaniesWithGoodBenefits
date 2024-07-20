@@ -30,10 +30,15 @@ const addResultsDiv = (text) => {
   if (text !== "false") {
     newURL.innerHTML = text
    newContent.innerHTML = text
-   newURL.href = ""
+   newURL.href = text
     newURL.target = "_blank"}
   if (text === "false") {
+    newContent.innerHTML = "Sorry, this company does not care about its employees"
     newURL.innerHTML = "Sorry, this company does not care about its employees"
+    newURL.style.cursor = 'default';
+    newURL.style.color = 'black';
+    newURL.style.textDecoration = 'none'
+    
   }
   button.style.marginTop = '15px';
   container.appendChild(newURL);
