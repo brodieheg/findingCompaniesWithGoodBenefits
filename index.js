@@ -48,7 +48,7 @@ const handleSubmit = async (event) => {
     text: url.value,
     keyword: keyword.value
   }
-  const response = await fetch(local, {
+  const response = await fetch(API, {
     headers:{
       'Content-Type': 'application/json'
     },
