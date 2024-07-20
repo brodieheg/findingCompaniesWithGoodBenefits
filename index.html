@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Good Companies</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body style="text-align: center">
+    <h2 id="heading">
+      Find out if a company talks about benefits on their website
+    </h2>
+    <p id="text">
+      Use the form below to search a company's website for mentions of benefits,
+      employee assistance programs, or whatever you want. Make sure your URL is
+      formatted properly, with "https://" at the beginning, and search any
+      keyword you want!
+    </p>
+    <form id="form">
+      <input
+        id="url"
+        type="url"
+        style="margin-top: 50px"
+        placeholder="Company's Url"
+      />
+      <br />
+      <input
+        style="margin: 25px 0 25px 0"
+        type="text"
+        id="keyword"
+        placeholder="Keyword to search for"
+      />
+      <br />
+      <div id="text-container"></div>
+      <button id="button" type="submit">Submit</button>
+      <div class="container">
+        <div id="loading" class="loading"></div>
+      </div>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>
