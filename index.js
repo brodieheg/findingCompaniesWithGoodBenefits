@@ -44,7 +44,6 @@ const handleSubmit = async (event) => {
   event.preventDefault();
   showSpinner();
   try {
-
     console.log(url.value);
     const body = {
       text: url.value,
@@ -57,9 +56,13 @@ const handleSubmit = async (event) => {
       method: "POST",
       body: JSON.stringify(body)
     })
-    const result = await response.text();
-    console.log(result);
-    addResultsDiv(result);
+    if(response.status !== 200) {
+      newURL.innerHTML = "Error loading website. Slack Brodie and tell him he is a failure."
+    container.appendChild(newURL);
+    container.appendChild(br);
+    }
+    else {const result = await response.text();
+    addResultsDiv(result);}
   }
   catch{
     newURL.innerHTML = "Error loading website. Slack Brodie and tell him he is a failure."
