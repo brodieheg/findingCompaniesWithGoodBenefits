@@ -35,9 +35,7 @@ const addResultsDiv = (text) => {
   if (text === "false") {
     newContent.innerHTML = "Sorry, this company does not care about its employees"
     newURL.innerHTML = "Sorry, this company does not care about its employees"
-    newURL.style.cursor = 'default';
-    newURL.style.color = 'black';
-    newURL.style.textDecoration = 'none'
+    newURL.href = ""
     
   }
   button.style.marginTop = '15px';
